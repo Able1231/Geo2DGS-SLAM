@@ -1,5 +1,5 @@
 # Geo2DGS-SLAM
-
+tracking accuracy on three sequences from the TUM-RGBD benchmark
 | Method        | fr1/desk | fr2/xyz | fr3/office | Avg.     |
 | ------------- | -------- | ------- | ---------- | -------- |
 | Point-SLAM    | 4.3      | 1.3     | 3.5        | 3.0      |
