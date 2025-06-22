@@ -1,4 +1,6 @@
 # Geo2DGS-SLAM
+demo download:https://pan.quark.cn/s/18ce416928c5
+
 tracking accuracy on three sequences from the TUM-RGBD benchmark
 | Method        | fr1/desk | fr2/xyz | fr3/office | Avg.     |
 | ------------- | -------- | ------- | ---------- | -------- |
