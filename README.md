@@ -19,6 +19,7 @@ pip install thirdparty/diff-surfel-rasterization/ --no-build-isolation
 pip install thirdparty/LightGlue-main/ --no-build-isolation
 pip install thirdparty/simple-knn/ --no-build-isolation
 pip install thirdparty/lietorch/ --no-build-isolation
+pip install thirdparty/evaluate_3d_reconstruction_lib-main/ --no-build-isolation
 pip install thirdparty/torch_scatter-2.1.2+pt25cu121-cp39-cp39-linux_x86_64.whl
 pip install . --no-build-isolation
 ```
