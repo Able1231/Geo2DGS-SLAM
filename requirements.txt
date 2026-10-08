@@ -1,0 +1,14 @@
+open3d==0.18.0
+wandb
+trimesh
+pytorch_msssim
+torchmetrics
+tqdm
+imageio
+opencv-python
+plyfile
+faiss-gpu-cu12==1.8.0.0
+numpy==1.26.4
+mediapy
+einops
+evo

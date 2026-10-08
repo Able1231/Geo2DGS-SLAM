@@ -1,0 +1,78 @@
+project_name: "Gaussian_SLAM_tumrgbd"
+dataset_name: "tum_rgbd"
+checkpoint_path: null
+use_wandb: False
+device: cuda
+frame_limit: -1 # for debugging, set to -1 to disable
+seed: 0
+image_size : [384,512]
+mapping:
+  new_submap_every_kf: 10
+  mapping_crop: 50
+  new_submap_every: 50
+  map_every: 1
+  iterations: 200
+  new_submap_iterations: 1000
+  new_submap_points_num: 100000 
+  new_submap_gradient_points_num: 50000 
+  new_frame_sample_size: 30000 
+  new_points_radius: 0.0001
+  current_view_opt_iterations: 0.4 # What portion of iterations to spend on the current view
+  alpha_thre: 0.6
+  pruning_thre: 0.5
+  submap_using_motion_heuristic: True
+tracking:
+  pretrained: ./pretrained/droid.pth
+  beta: 0.75      # beta * Distance(R|t) + (1-beta) * Distance(I|t), refer to droid_kernels.cu:frame_distance_kernel
+  warmup: 12
+  max_age: 50
+  buffer: 500
+  motion_filter:
+    thresh: 2.0
+
+  frontend:
+    enable_loop: True      # whether to enable loop closure
+    enable_online_ba: True # whether to enable online bundle adjustment
+    keyframe_thresh: 2.0   # remove keyframe if it is too close to the last keyframe, i.e. avg flow < X pixels
+    thresh: 16.0           # only consider edge with avg flow < X pixels
+    window: 25             # local ba window size
+    radius: 2              # build edges within local window [i-radius, i]
+    nms: 1                 # r_local in GO-SLAM paper
+    max_factors: 75        # maximum number of edges in local ba
+
+  backend:
+    final_ba: True # whether to enable final global bundle adjustment in the end
+    ba_freq: 20    # do online bundle adjustment every X keyframes
+    thresh: 25.0   # only consider edge with avg flow < X pixels
+    radius: 2      # build edges within local window [i-radius, i]
+    nms: 3         # r_global in GO-SLAM paper
+    loop_window: 25    # N_local in GO-SLAM paper
+    loop_thresh: 25.0  # only consider edge with avg flow < X pixels
+    loop_radius: 5     # build edges within local window [i-radius, i]
+    loop_nms: 10       # r_loop in GO-SLAM paper
+    # Don't set {metric_depth_reg} to False unless you want to do some ablation study
+    # If it's False, the depth for mapping will be processed following how Splat-SLAM correct scale.
+    #                See "get_w2c_and_depth" in mapper.py for detail.
+    metric_depth_reg: True # whether to use metric depth to guide disparity in BA, always set to True
+    normalize: False    # whether to normalize disps after each BA iter
+  gt_camera: False
+  w_color_loss: 0.5
+  iterations: 10
+  cam_rot_lr: 0.002
+  cam_trans_lr: 0.01
+  odometry_type: "const_speed"  # gt, const_speed, odometer
+  help_camera_initialization: False # temp option to help const_init
+  init_err_ratio: 5
+  odometer_method: "hybrid" # hybrid or point_to_plane
+  filter_alpha: False
+  filter_outlier_depth: False
+  alpha_thre: 0.98
+  soft_alpha: True
+  mask_invalid_depth: True
+cam:
+  depth_scale: 5000.0
+  crop_edge: 0
+  W_edge: 16
+  H_edge: 8
+  W_out: 320
+  H_out: 240

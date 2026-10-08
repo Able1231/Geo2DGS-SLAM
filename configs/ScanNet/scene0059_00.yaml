@@ -1,0 +1,6 @@
+inherit_from: configs/ScanNet/scannet.yaml
+adaptive_intri: True
+data:
+  input_path: /home/ubuntu/xth/VGGT-SLAM-main/datasets/Scannet/scene0059_00/
+  output_path: output/ScanNet/scene0059
+  scene_name: scene0059_00

@@ -1,0 +1,5 @@
+inherit_from: configs/Replica/replica.yaml
+data:
+  scene_name: office0
+  input_path: /home/ubuntu/data01/xth/Gaussian-SLAM-main/data/Replica-SLAM/snapshots/Replica/office0/
+  output_path: output/Replica/office0/

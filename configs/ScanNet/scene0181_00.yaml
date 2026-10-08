@@ -1,0 +1,18 @@
+inherit_from: configs/ScanNet/scannet.yaml
+adaptive_intri: True
+data:
+  input_path: /home/ubuntu/xth/VGGT-SLAM-main/datasets/Scannet/scene0181_00
+  output_path: output/ScanNet/scene0181
+  scene_name: scene0181_00
+tracking:
+  motion_filter:
+    thresh: 1.0
+    
+tracking:    
+  frontend:
+    keyframe_thresh: 1.0   # remove keyframe if it is too close to the last keyframe, i.e. avg flow < X pixels
+cam: 
+  fx: 575.547668
+  fy: 577.459778
+  cx: 323.171967
+  cy: 236.417465
