@@ -1,4 +1,5 @@
-# Geo2DGS-SLAM
+# Geo2DGS-SLAM: Geometry-Driven SLAM with 2D Gaussian Splatting
+[Paper](https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cit2.70183)
 
 1. Create and activate environment
 ```bash
