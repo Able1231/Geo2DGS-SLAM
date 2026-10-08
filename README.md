@@ -1,4 +1,5 @@
-# Geo2DGS-SLAM
+# Geo2DGS-SLAM: Geometry-Driven SLAM with 2D Gaussian Splatting
+[Paper](https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cit2.70183)
 
 1. Create and activate environment
 ```bash
@@ -23,6 +24,13 @@ pip install thirdparty/evaluate_3d_reconstruction_lib-main/ --no-build-isolation
 pip install thirdparty/torch_scatter-2.1.2+pt25cu121-cp39-cp39-linux_x86_64.whl
 pip install . --no-build-isolation
 ```
+
+### 5. Run Geo2DGS-SLAM
+
+```bash
+python run_slam.py configs/ScanNet/scene0181_00.yaml
+```
+
 demo download:https://pan.quark.cn/s/18ce416928c5
 
 This project is built upon and adopts code from the following open-source works.
